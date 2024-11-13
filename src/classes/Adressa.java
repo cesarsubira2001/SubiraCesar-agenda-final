@@ -2,71 +2,80 @@ package classes;
 
 public class Adressa {
     // Atributs
+    // Atributs
     private String carrer;
     private int numeroCarrer;
     private String ciutat;
     private String codiPostal;
     private String pais;
-
-    // Constructor
-    public Adressa(String _carrer,
+    private String etiqueta;
+    // Constructors.
+    // Constructor TOTS els paràmetres.
+    public Adressa(String _etiqueta,
+                   String _carrer,
                    int _numeroCarrer,
                    String _ciutat,
                    String _codiPostal,
                    String _pais) {
         this.carrer = _carrer;
         this.numeroCarrer = _numeroCarrer;
-        this.ciutat = _ciutat;
         this.codiPostal = _codiPostal;
         this.pais = _pais;
+        this.ciutat = _ciutat;
+        this.etiqueta = _etiqueta;
     }
-
-    public String getCarrer() {
-        return carrer;
-    }
-
-    public void setCarrer(String _carrer) {
-        this.carrer = _carrer;
-    }
-
+    // Getters i Setters.
     public int getNumeroCarrer() {
-        return numeroCarrer;
+        return this.numeroCarrer;
+    }
+    public String getCarrer() {
+        return this.carrer;
+    }
+    public String getCiutat() {
+        return this.ciutat;
+    }
+    public String getCodiPostal() {
+        return this.codiPostal;
+    }
+    public String getPais() {
+        return this.pais;
+    }
+    public String getEtiqueta() {
+        return this.etiqueta;
     }
 
+    // Setters
     public void setNumeroCarrer(int _numeroCarrer) {
         this.numeroCarrer = _numeroCarrer;
     }
-
-    public String getCiutat() {
-        return ciutat;
+    public void setCarrer(String _carrer) {
+        this.carrer = _carrer;
     }
-
     public void setCiutat(String _ciutat) {
         this.ciutat = _ciutat;
     }
-
-    public String getCodiPostal() {
-        return codiPostal;
-    }
-
     public void setCodiPostal(String _codiPostal) {
         this.codiPostal = _codiPostal;
     }
-
-    public String getPais() {
-        return pais;
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    public void setEtiqueta(String _etiqueta) {
+        this.etiqueta = _etiqueta;
     }
 
-    public void setPais(String _pais) {
-        this.pais = _pais;
-    }
-
+    // Mètodes.
+    // Mètodes Comúns
     @Override
     public String toString() {
-        return "Adreça " +
-                carrer + ", " + numeroCarrer +
-                codiPostal + " - " + ciutat + '\'' +
-                ", " + pais + '\'' +
-                '}';
+        return "\t" + this.etiqueta.toLowerCase() + ":\t" +
+                this.getCarrer() + ", " + (this.getNumeroCarrer()==0?"s/n":this.getNumeroCarrer()) +
+                " | " + getCodiPostal() + " - " + getCiutat() + " | " +
+                getPais();
     }
+
+//    @Override
+//    public String toString() {
+//        return  "\t" + this.etiqueta.toLowerCase() + ":\t" + this.numeroTelefon;
+//    }
 }

@@ -95,12 +95,43 @@ public class Agenda {
     public void afegirTelefonContacte(Contacte _contacte, Telefon _telefon) {
         for (Contacte contacte : llistaContactes) {
             if (contacte.equals(_contacte)) {
-                contacte.afegirUnTelefon(_telefon);
+                contacte.afegirTelefon(_telefon);
                 return;
             }
         }
-        _contacte.afegirUnTelefon(_telefon);
+        _contacte.afegirTelefon(_telefon);
         llistaContactes.add(_contacte);
+    }
+
+    public void afegirAdressaContacte(Contacte _contacte, Adressa _adressa) {
+        for (Contacte contacte : llistaContactes) {
+            if (contacte.equals(_contacte)) {
+                contacte.afegirAdressa(_adressa);
+                return;
+            }
+        }
+        llistaContactes.add(_contacte);
+    }
+
+    public LinkedList<Contacte> buscaContactePerNom(String nomContacteABuscar) {
+        LinkedList<Contacte> contactesTrobats = new LinkedList<>();
+        for (Contacte contacte : llistaContactes) {
+            if (contacte.getNom().equalsIgnoreCase(nomContacteABuscar)) {
+                contactesTrobats.add(contacte);
+            }
+        }
+        return contactesTrobats.isEmpty() ? null : contactesTrobats;
+    }
+
+    public LinkedList<Contacte> buscaContactePerNomOCognom(String criteri) {
+        LinkedList<Contacte> contactesTrobats = new LinkedList<>();
+        for (Contacte contacte : llistaContactes) {
+            if (contacte.getNom().equalsIgnoreCase(criteri) ||
+                contacte.getCognom().equalsIgnoreCase(criteri)) {
+                contactesTrobats.add(contacte);
+            }
+        }
+        return contactesTrobats.isEmpty() ? null : contactesTrobats;
     }
 }
 

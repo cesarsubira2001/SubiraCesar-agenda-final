@@ -37,6 +37,6 @@ public class Telefon {
 
     @Override
     public String toString() {
-        return this.numeroTelefon + " (" + this.etiqueta+ ")";
+        return this.etiqueta + ":\t" + this.numeroTelefon;
     }
 }
