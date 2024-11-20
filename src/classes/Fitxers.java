@@ -1,10 +1,21 @@
 package classes;
 
+import java.awt.*;
 import java.io.*;
 
 public class Fitxers {
+    public static void escriureCadenaAFitxer(String nomArxiu, String cadenaAEscriure) throws IOException {
+        BufferedWriter canalEscriptura = null;
+        try {
+            canalEscriptura = new BufferedWriter(new FileWriter(nomArxiu));
+        } catch (IOException e) {
+            System.out.println("Problema durant l'accés a l'arxiu");
+            System.exit(1);
+        }
+        canalEscriptura.write(cadenaAEscriure);
+        canalEscriptura.close();
+    }
     public static String llegirLinia(String nomArxiu) throws IOException {
-
         BufferedReader canalLectura = null;
         try {
             canalLectura = new BufferedReader(new FileReader(nomArxiu));
@@ -46,6 +57,10 @@ public class Fitxers {
 
     public static void main(String[] args) throws IOException {
         String nomArxiu = "fitxers/agenda.csv";
-        String campsLlegits = llegirLinia(nomArxiu);
+        //String campsLlegits = llegirLinia(nomArxiu);
+        String textAEscriure = "\"Joan\",\"Pardo\",1,\"casa\",2347892,\"casa\",1,\"Carrer Balmes\"";
+        escriureCadenaAFitxer(nomArxiu, textAEscriure);
+        System.out.println("Fet!");
+
     }
 }
