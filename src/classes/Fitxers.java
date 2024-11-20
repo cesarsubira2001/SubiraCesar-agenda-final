@@ -19,6 +19,10 @@ public class Fitxers {
             /* readLine retorna null quan arriba a EOF */
             while (linia != null) {
                 System.out.println(linia);
+                String[] camps = linia.split(",");
+                for (String camp : camps) {
+                    System.out.println("camp " + camp);
+                }
                 linia = canalLectura.readLine();
             }
         } catch (IOException e) {
@@ -42,11 +46,6 @@ public class Fitxers {
 
     public static void main(String[] args) throws IOException {
         String nomArxiu = "fitxers/agenda.csv";
-        String[] campsLlegits = obtenirCamps(nomArxiu);
-        if (campsLlegits != null) {
-            for (String camp : campsLlegits) {
-                System.out.println("camp " + camp);
-            }
-        }
+        String campsLlegits = llegirLinia(nomArxiu);
     }
 }
