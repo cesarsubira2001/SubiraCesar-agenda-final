@@ -144,16 +144,21 @@ public class AppAgenda {
 
     private static void modificarContacte(Contacte contacte) {
         Contacte contacteAModificar = agenda.buscarContacte(obteDadesContacte());
-        String nouNom = Teclat.llegirCadena("Entra el nou nom (actual = : " + contacteAModificar.getNom() + "): ");
+        String nouNom = Teclat.llegirCadena("Entra el nou nom " +
+                "(actual = : " + contacteAModificar.getNom() + "): ");
         if (nouNom != null && nouNom.isEmpty()) {
             nouNom = contacteAModificar.getNom();
         }
-        String nouCognom = Teclat.llegirCadena("Entra el nou cognom (actual = : " + contacteAModificar.getCognom() + "): ");
+        String nouCognom = Teclat.llegirCadena("Entra el nou cognom " +
+                "(actual = : " + contacteAModificar.getCognom() + "): ");
         if (nouCognom != null && nouCognom.isEmpty()) {
             nouCognom = contacteAModificar.getCognom();
         }
+
         Contacte contacteEditat = new Contacte(nouNom, nouCognom);
         agenda.modificarContacte(contacteAModificar, contacteEditat);
+
+
         System.out.println("Contacte modificat amb èxit!");
     }
     public static void modificarContacte2() {
