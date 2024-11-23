@@ -58,8 +58,7 @@ public class Agenda {
     public static void mostraTelefons(Contacte contacteActual) {
         String telefonsFormatCadena = "";
         LinkedList<Telefon> llistaTel = contacteActual.getLlistaTelefons();
-        for (int j = 0; j < llistaTel.size(); j++) {
-            Telefon telefonActual = llistaTel.get(j);
+        for (Telefon telefonActual : llistaTel) {
             telefonsFormatCadena += telefonActual;
         }
         System.out.println( contacteActual.getNom()
